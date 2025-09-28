@@ -1,0 +1,20 @@
+- name: Install mariadb server
+  apt:
+    name: mariadb-server
+    state: present
+    update_cache: true
+  become: true
+
+- name: Ensure mariadb is enabled and running
+  service:
+    name: mariadb
+    state: started
+    enabled: true
+  become: true
+
+- name: Create application database if not exists
+  command: >
+    mysql -uroot -NBe "CREATE DATABASE IF NOT EXISTS \`{{ db_name }}\`;"
+  args:
+    warn: false
+  become: true

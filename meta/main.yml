@@ -1,7 +1,7 @@
 galaxy_info:
   author: Ghoulli
   role_name: role_db
-  namespace: ghoulli
+  namespace: Ghoulli
   description: Install and configure MariaDB and create the application database
   license: MIT
   min_ansible_version: "2.14"
